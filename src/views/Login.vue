@@ -1,35 +1,38 @@
 <template>
-   <el-form class="main-form"
-        :model="loginForm"
-        :rules="rules" 
-        ref="loginForm"  
-        @submit.prevent="handleSubmit"
+  <el-form class="main-form"
+      :model="loginForm"
+      :rules="rules" 
+      ref="loginForm"  
+      @submit.prevent="handleSubmit"
+    >
+      <h2>Авторизация</h2>
+      <el-form-item class="el-form-item"
+        prop="username"
+        label="Логин:"
+        label-width="120px" 
       >
-        <h2>Авторизация</h2>
-        <el-form-item class="el-form-item"
-          prop="username"
-          label="Логин:"
-          label-width="120px" 
-        >
-          <el-input class="input" v-model="loginForm.username" placeholder="Введите логин"></el-input>
-        </el-form-item>
+        <el-input 
+        class="input" 
+        v-model="loginForm.username" 
+        placeholder="Введите логин"></el-input>
+      </el-form-item>
 
-        <el-form-item class="el-form-item"
-          prop="password"
-          label="Пароль:"
-          label-width="120px"
-        >
-          <el-input 
-            type="password" 
-            v-model="loginForm.password" 
-            placeholder="Введите пароль" 
-          ></el-input>
-        </el-form-item>
-        <div v-show="errorMessage" class="error">{{ errorMessage }}</div>
-        <el-form-item class="el-form-item">
-          <el-button type="primary" native-type="submit">Войти</el-button>
-        </el-form-item>
-      </el-form>
+      <el-form-item class="el-form-item"
+        prop="password"
+        label="Пароль:"
+        label-width="120px"
+      >
+        <el-input
+          type="password" 
+          v-model="loginForm.password" 
+          placeholder="Введите пароль" 
+        ></el-input>
+      </el-form-item>
+      <div v-show="errorMessage" class="error">{{ errorMessage }}</div>
+      <div>
+        <el-button type="primary" native-type="submit">Войти</el-button>
+      </div>
+    </el-form>
 </template>
 
 
@@ -72,3 +75,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.main-form {
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 26%;
+
+}
+.el-form-item__content {
+  justify-content: center;
+  align-items: center;
+  flex: none;
+}
+</style>
